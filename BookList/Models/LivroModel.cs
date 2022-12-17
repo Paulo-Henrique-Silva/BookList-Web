@@ -1,20 +1,30 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BookList.Models
 {
+    [Table("tb_livros")]
     public class LivroModel
     {
+        [Column("id")]
         [Key]
         [Required]
         public int Id { get; set; }
 
+        [Column("isbn")]
         [Required]
-        public string Isbn { get; set; }
+        [MaxLength(13)]
+        public string? Isbn { get; set; }
 
+        [Column("titulo")]
         [Required]
-        public string Titulo { get; set; }
+        [MaxLength(80)]
+        public string? Titulo { get; set; }
 
+        [Column("autor")]
         [Required]
-        public string Autor { get; set; }
+        [MaxLength(80)]
+        public string? Autor { get; set; }
     }
 }
