@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace BookList.Models
 {
     [Table("tb_livros")]
-    public class LivroModel
+    public class Livro
     {
         [Column("id")]
         [Key]

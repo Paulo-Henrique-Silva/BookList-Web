@@ -4,7 +4,46 @@
     ViewData["Title"] = "Home page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Book List Site</h1>
+<div class="text-center col-12 m-auto mb-4">
+    <h1 class="display-4 fw-bold">Book List Site</h1>
     <hr />
+
+    <a class="btn btn-lg btn-primary" asp-area="" asp-page="/GerenciamentoLista/Adicionar">Adicionar Livro</a>
+</div>
+
+<div class="card text-center col-12 m-auto">
+    <h6 class="card-header card-title">Lista Atual</h6>
+
+    <div class="card-body">
+        @if (Model.LivrosLista.Count != 0)
+        {
+            <table class="table table-striped w-100">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>ISBN</th>
+                        <th>TITULO</th>
+                        <th>AUTOR</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach(var livro in Model.LivrosLista)
+                    {
+                        <tr>
+                            <th>@livro.Id</th>
+                            <td>@livro.Isbn</td>
+                            <td>@livro.Titulo</td>
+                            <td>@livro.Autor</td>
+                            <td><a class="btn btn-sm btn-outline-danger w-100">Deletar</a></td>
+                            <td><a class="btn btn-sm btn-primary w-100">Alterar</a></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+        else
+        {
+            <p>Não há livros cadastrados :/</p>
+        }
+    </div>
 </div>
