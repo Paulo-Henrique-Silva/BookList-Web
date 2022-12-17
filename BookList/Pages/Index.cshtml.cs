@@ -25,5 +25,12 @@ namespace BookList.Pages
         {
             LivrosLista = contexto.Livros.ToList();
         }
+
+        public IActionResult OnGetDeletar(int id)
+        {
+            contexto.Livros.Remove(contexto.Livros.Find(id));
+            contexto.SaveChanges();
+            return RedirectToPage("/Index");
+        }
     }
 }
