@@ -35,7 +35,7 @@
                             <td>@livro.Titulo</td>
                             <td>@livro.Autor</td>
                             <td><a class="btn btn-sm btn-outline-danger w-100">Deletar</a></td>
-                            <td><a class="btn btn-sm btn-primary w-100">Alterar</a></td>
+                            <td><a class="btn btn-sm btn-primary w-100" asp-area="" asp-page="/GerenciamentoLista/Alterar" asp-route-id="@livro.Id" >Alterar</a></td>                        
                         </tr>
                     }
                 </tbody>

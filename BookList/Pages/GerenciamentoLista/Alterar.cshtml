@@ -1,0 +1,41 @@
+﻿@page
+@model BookList.Pages.GerenciamentoLista.AlterarModel
+@{
+}
+
+<div class="text-left col-12 m-auto mb-4">
+    <h2 class="display-4">Alterar Livro</h2>
+    <hr />
+</div>
+
+<form class="card col-8 m-auto" method="post">
+    <h6 class="card-header card-title text-center">Altere as informações</h6>
+
+    <div class="card-body">
+        @*Saves the to update later*@
+        <input type="hidden" asp-for="@Model.LivroASerAlterado.Id"/>
+
+        <div class="mb-2">
+            <label class="form-label">ISBN</label>
+            <input class="form-control" type="text" minlength="13" maxlength="13" asp-for="@Model.LivroASerAlterado.Isbn" />
+            <span class="text-danger" asp-validation-for="LivroASerAlterado.Isbn"></span>
+        </div>
+        <div class="mb-2">
+            <label class="form-label">Titulo</label>
+            <input class="form-control" type="text" maxlength="80" asp-for="@Model.LivroASerAlterado.Titulo" />
+            <span class="text-danger" asp-validation-for="LivroASerAlterado.Titulo"></span>
+        </div>
+        <div class="mb-4">
+            <label class="form-label">Autor</label>
+            <input class="form-control" type="text" maxlength="80" asp-for="@Model.LivroASerAlterado.Autor" />
+            <span class="text-danger" asp-validation-for="LivroASerAlterado.Autor"></span>
+        </div>
+
+        <button class="btn btn-primary w-100" type="submit">Alterar</button>
+    </div>
+    <span class="text-danger" asp-validation-summary="ModelOnly"></span>
+</form>
+
+@section Scripts{
+    <partial name="_ValidationScriptsPartial"/>
+}
