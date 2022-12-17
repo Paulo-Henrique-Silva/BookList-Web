@@ -18,10 +18,14 @@ namespace BookList.Pages.GerenciamentoLista
 
         public void OnGet()
         {
+
         }
 
         public IActionResult OnPost() 
         {
+            if (!long.TryParse(NovoLivro.Isbn, out long _))
+                ModelState.AddModelError("NovoLivro.Isbn", "O campo de ISBN precisa conter apenas números.");
+
             //diz se as propriedades atuais do modelo são válidas, conforme as tags nos objetos.
             if (ModelState.IsValid) 
             {
