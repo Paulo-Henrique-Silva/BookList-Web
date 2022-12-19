@@ -8,11 +8,11 @@
     <h1 class="display-4 fw-bold">Book List Site</h1>
     <hr />
 
-    <a class="btn btn-lg btn-primary mb-4" asp-area="" asp-page="/GerenciamentoLista/Adicionar">Adicionar Livro</a>
+    <a class="btn btn-lg btn-primary mb-4" asp-area="" asp-page="/GerenciamentoLista/Adicionar" autofocus="true">Adicionar Livro</a>
 
     <form class="input-group w-50 m-auto" method="post" asp-page-handler="PesquisarTitulo">
-        <input class="form-control" type="text" placeholder="Titulo do livro" asp-for="@Model.TituloPesquisa" value=""/>
-        <button class="btn btn-light" type="submit">Pesquisar</button>
+        <input class="form-control" type="text" placeholder="Titulo do livro" id="ipt-pesquisa" asp-for="@Model.TituloPesquisa" value=""/>
+        <button class="btn btn-secondary" type="submit">Pesquisar</button>
     </form>
 </div>
 
@@ -53,3 +53,11 @@
         }
     </div>
 </div>
+
+@section Scripts{
+    <script type="text/javascript">
+        if ("@Model.TituloPesquisa" != "") {
+            document.getElementById("ipt-pesquisa").focus();
+        }
+    </script>
+}

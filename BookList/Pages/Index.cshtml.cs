@@ -16,7 +16,7 @@ namespace BookList.Pages
         public List<Livro> LivrosLista = new();
 
         [BindProperty(SupportsGet = true)]
-        public string TituloPesquisa { get; set; }
+        public string? TituloPesquisa { get; set; }
         
         public IndexModel(ILogger<IndexModel> logger, ApplicationDbContext contexto)
         {
@@ -31,8 +31,14 @@ namespace BookList.Pages
 
         public IActionResult OnGetDeletar(int id)
         {
-            contexto.Livros.Remove(contexto.Livros.Find(id));
-            contexto.SaveChanges();
+            var livroASerRemovido = contexto.Livros.Find(id);
+
+            if (livroASerRemovido != null)
+            {
+                contexto.Livros.Remove(livroASerRemovido);
+                contexto.SaveChanges();
+            }
+
             return RedirectToPage("/Index");
         }
 
