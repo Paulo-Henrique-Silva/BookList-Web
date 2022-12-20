@@ -13,21 +13,21 @@
     <h6 class="card-header card-title text-center">Altere as informações</h6>
 
     <div class="card-body">
-        @*Saves the to update later*@
+        @*Saves to update it later*@
         <input type="hidden" asp-for="@Model.LivroASerAlterado.Id"/>
 
         <div class="mb-2">
-            <label class="form-label">ISBN</label>
+            <label class="form-label" asp-for="LivroASerAlterado.Isbn"></label>
             <input class="form-control" type="text" minlength="13" maxlength="13" asp-for="@Model.LivroASerAlterado.Isbn" />
             <span class="text-danger" asp-validation-for="LivroASerAlterado.Isbn"></span>
         </div>
         <div class="mb-2">
-            <label class="form-label">Titulo</label>
+            <label class="form-label" asp-for="LivroASerAlterado.Titulo"></label>
             <input class="form-control" type="text" maxlength="80" asp-for="@Model.LivroASerAlterado.Titulo" />
             <span class="text-danger" asp-validation-for="LivroASerAlterado.Titulo"></span>
         </div>
         <div class="mb-4">
-            <label class="form-label">Autor</label>
+            <label class="form-label" asp-for="LivroASerAlterado.Autor"></label>
             <input class="form-control" type="text" maxlength="80" asp-for="@Model.LivroASerAlterado.Autor" />
             <span class="text-danger" asp-validation-for="LivroASerAlterado.Autor"></span>
         </div>
